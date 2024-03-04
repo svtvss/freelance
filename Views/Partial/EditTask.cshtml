@@ -1,0 +1,120 @@
+﻿@model ContextManager
+@{
+    int countFiles = Model.Files.Where(q => q.TaskId == ViewBag.Task.Id).Count();
+    List<File> files = Model.Files.Where(q => q.TaskId == ViewBag.Task.Id).ToList();
+
+    var startdate = ViewBag.Task.CreationDate as DateTime?;
+    var enddate = ViewBag.Task.DueDate as DateTime?;
+}
+
+<form>
+    @if (ViewBag.MyTask == true)
+    {
+        <div class="cursor-default">
+            <p class="margin-0 fontsize24 colorblack fontweightbold">Редактирование задачи @ViewBag.Task.Name</p>
+
+            <p class="margin-0 fontsize20 mrtop-16"><b>Наименование:</b></p>
+            <input type="text" class="inpforoldpas mrtop-8" id="taskname" name="taskname" value="@ViewBag.Task.Name" required style="font-size: 18px"/>
+
+            <p class="margin-0 fontsize20 mrtop-16"><b>Статус:</b></p>
+            @if (ViewBag.Task.Status == freelance.Models.TaskStatus.Новый)
+            {
+                <select class="mrtop-8" name="taskstatus" id="taskstatus" required style="font-size: 18px">
+                    <option value="Новый" selected>Новый</option>
+                    <option value="Впроцессе">В процессе</option>
+                    <option value="Завершенный">Завершенный</option>
+                </select>
+            }
+            else if (ViewBag.Task.Status == freelance.Models.TaskStatus.Впроцессе)
+            {
+                <select class="mrtop-8" name="taskstatus" id="taskstatus" required style="font-size: 18px">
+                    <option value="Новый">Новый</option>
+                    <option value="Впроцессе" selected>В процессе</option>
+                    <option value="Завершенный">Завершенный</option>
+                </select>
+            }
+            else if (ViewBag.Task.Status == freelance.Models.TaskStatus.Завершенный)
+            {
+                <select class="mrtop-8" name="taskstatus" id="taskstatus" required style="font-size: 18px">
+                    <option value="Новый">Новый</option>
+                    <option value="Впроцессе">В процессе</option>
+                    <option value="Завершенный" selected>Завершенный</option>
+                </select>
+            }
+
+            <p class="margin-0 fontsize20 mrtop-16"><b>Приоритет:</b></p>
+            @if (ViewBag.Task.Priority == TaskPriority.Низкий)
+            {
+                <select class="mrtop-8" name="taskpriority" id="taskpriority" required style="font-size: 18px">
+                    <option value="Низкий" selected>Низкий</option>
+                    <option value="Средний">Средний</option>
+                    <option value="Высокий">Высокий</option>
+                </select>
+            }
+            else if (ViewBag.Task.Priority == TaskPriority.Средний)
+            {
+                <select class="mrtop-8" name="taskpriority" id="taskpriority" required style="font-size: 18px">
+                    <option value="Низкий">Низкий</option>
+                    <option value="Средний" selected>Средний</option>
+                    <option value="Высокий">Высокий</option>
+                </select>
+            }
+            else if (ViewBag.Task.Priority == TaskPriority.Высокий)
+            {
+                <select class="mrtop-8" name="taskpriority" id="taskpriority" required style="font-size: 18px">
+                    <option value="Низкий">Низкий</option>
+                    <option value="Средний">Средний</option>
+                    <option value="Высокий" selected>Высокий</option>
+                </select>
+            }
+
+            <p class="margin-0 fontweightbold fontsize20 mrtop-16">Описание:</p>
+            <textarea class="inpforoldpas mrtop-8" id="taskdesc" name="taskdesc" required>@ViewBag.Task.Description</textarea>
+
+            <p class="margin-0 fontweightbold fontsize20 mrtop-16">Начало выполнения:</p>
+            @if (startdate.HasValue)
+            {
+                <input type="date" class="inpforoldpas mrtop-8" id="projstartdate" name="taskstartdate" value="@startdate.Value.ToString("yyyy-MM-dd")" required onchange="createTaskDateValidation()" onkeydown="return false" style="font-size: 18px"/>
+            }
+
+            <p class="margin-0 fontweightbold fontsize20 mrtop-16">Дедлайн выполнения:</p>
+            @if (enddate.HasValue)
+            {
+                <input type="date" class="inpforoldpas mrtop-8" id="taskenddate" name="taskenddate" required value="@enddate.Value.ToString("yyyy-MM-dd")" onkeydown="return false" style="font-size: 18px"/>
+            }
+
+            @if (countFiles > 0)
+            {
+                <p class="margin-0 fontsize20 mrtop-16"><b>Файлы задачи:</b></p>
+                foreach (var file in files)
+                {
+                    string[] parts = file.FileName.Split('_');
+                    string filename = parts[1];
+                    <div class="d-flex align-items-center justify-content-space-between">
+                        <div class="d-flex align-items-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 4C3.73478 4 3.48043 4.10536 3.29289 4.29289C3.10536 4.48043 3 4.73478 3 5V19C3 19.2652 3.10536 19.5196 3.29289 19.7071C3.48043 19.8946 3.73478 20 4 20H20C20.2652 20 20.5196 19.8946 20.7071 19.7071C20.8946 19.5196 21 19.2652 21 19V8C21 7.73478 20.8946 7.48043 20.7071 7.29289C20.5196 7.10536 20.2652 7 20 7H11C10.6656 7 10.3534 6.8329 10.1679 6.5547L8.46482 4H4ZM1.87868 2.87868C2.44129 2.31607 3.20435 2 4 2H9C9.33435 2 9.64658 2.1671 9.83205 2.4453L11.5352 5H20C20.7957 5 21.5587 5.31607 22.1213 5.87868C22.6839 6.44129 23 7.20435 23 8V19C23 19.7957 22.6839 20.5587 22.1213 21.1213C21.5587 21.6839 20.7957 22 20 22H4C3.20435 22 2.44129 21.6839 1.87868 21.1213C1.31607 20.5587 1 19.7957 1 19V5C1 4.20435 1.31607 3.44129 1.87868 2.87868Z" fill="black" />
+                            </svg>
+                            <a href="/Partial/DownloadFile?fileName=@file.FileName" target="_blank" class="margin-0 cursor-pointer mrleft-16 fontsize20" style="color: #0000FF" title="Наименование файла">@filename</a>
+                        </div>
+                        <div>
+                            <svg onclick="DelFile('@file.Id')" class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z" fill="#E56F8C" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 3C9.73478 3 9.48043 3.10536 9.29289 3.29289C9.10536 3.48043 9 3.73478 9 4V5H15V4C15 3.73478 14.8946 3.48043 14.7071 3.29289C14.5196 3.10536 14.2652 3 14 3H10ZM17 5V4C17 3.20435 16.6839 2.44129 16.1213 1.87868C15.5587 1.31607 14.7956 1 14 1H10C9.20435 1 8.44129 1.31607 7.87868 1.87868C7.31607 2.44129 7 3.20435 7 4V5H5C4.44772 5 4 5.44772 4 6V20C4 20.7957 4.31607 21.5587 4.87868 22.1213C5.44129 22.6839 6.20435 23 7 23H17C17.7957 23 18.5587 22.6839 19.1213 22.1213C19.6839 21.5587 20 20.7957 20 20V6C20 5.44772 19.5523 5 19 5H17ZM6 7V20C6 20.2652 6.10536 20.5196 6.29289 20.7071C6.48043 20.8946 6.73478 21 7 21H17C17.2652 21 17.5196 20.8946 17.7071 20.7071C17.8946 20.5196 18 20.2652 18 20V7H6Z" fill="#E56F8C" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10C10.5523 10 11 10.4477 11 11V17C11 17.5523 10.5523 18 10 18C9.44772 18 9 17.5523 9 17V11C9 10.4477 9.44772 10 10 10Z" fill="#E56F8C" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M14 10C14.5523 10 15 10.4477 15 11V17C15 17.5523 14.5523 18 14 18C13.4477 18 13 17.5523 13 17V11C13 10.4477 13.4477 10 14 10Z" fill="#E56F8C" />
+                            </svg>
+                        </div>
+                    </div>
+                }
+            }
+            <div class="d-flex justify-content-center">
+                <input type="button" id="btnedittask" onclick="EdTask('@ViewBag.Task.Id', this.form.taskname.value, this.form.taskstatus.value, this.form.taskpriority.value, this.form.taskdesc.value, this.form.taskstartdate.value, this.form.taskenddate.value)" class="input-button-login mrtop-16" style="text-align: center;" value="Реадктировать задачу" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="margin-0 fontsize24 colorblack fontweightbold">Редактировать задачу может только его автор!</p>
+    }
+</form>

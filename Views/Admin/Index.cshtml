@@ -1,0 +1,218 @@
+﻿@model ContextManager
+@{
+    Layout = null;
+
+    string GetRemovedLabel(bool isRemoved)
+    {
+        if (isRemoved == true)
+        {
+            return "Удален";
+        }
+        else
+        {
+            return "Активный";
+        }
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProLogs - Администрирование</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/site.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvg/1.5/canvg.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="d-flex alignitems-center justify-content-space-between w-50admin mrtop-16" style="margin-left: auto; margin-right: auto">
+        <div class="justify-content-start">
+            <div class="d-flex alignitems-center">
+                <svg class="cursor-pointer mrright-16" width="58" height="44" viewBox="0 0 58 44" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.6063 40.419C12.5737 45.4549 4.0503 45.4348 1.66995 38.7232C1.20391 37.4092 0.831297 36.0581 0.557239 34.6795C-0.561731 29.0503 0.0125652 23.2158 2.20751 17.9134C4.40245 12.611 8.11944 8.07902 12.8885 4.89045C17.6576 1.70189 23.2644 -2.45848e-07 29.0001 0C34.7357 2.45848e-07 40.3426 1.70189 45.1115 4.89045C49.8806 8.07902 53.5976 12.6111 55.7925 17.9135C57.9875 23.2158 58.5617 29.0503 57.4428 34.6795C57.1688 36.0581 56.7961 37.4092 56.33 38.7232C53.9496 45.4348 45.4263 45.4549 40.3936 40.419L32.625 32.6455C31.8828 31.9028 31.9595 30.678 32.1642 29.648C32.2886 29.0218 32.2247 28.3728 31.9805 27.7829C31.7363 27.193 31.3229 26.6887 30.7924 26.3341C30.2619 25.9795 29.6381 25.7901 29.0001 25.7901C28.362 25.7901 27.7383 25.9795 27.2077 26.3341C26.677 26.6887 26.2636 27.193 26.0194 27.7829C25.7752 28.3728 25.7113 29.0218 25.8359 29.648C26.0406 30.678 26.1172 31.9028 25.375 32.6455L17.6063 40.419Z"
+                          fill="url(#paint0_linear_11_13467)" />
+                    <defs>
+                        <linearGradient id="paint0_linear_11_13467" x1="55.3603" y1="14.5091" x2="3.88528"
+                                        y2="14.5091" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#64C2DB" />
+                            <stop offset="0.510417" stop-color="#7476ED" />
+                            <stop offset="1" stop-color="#E56F8C" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <p class="margin-0 fontweightbold fontsize18 cursor-default">ProLogs</p>
+            </div>
+        </div>
+
+        <div class="justify-content-end">
+            <div class="d-flex alignitems-center">
+                <div class="mrleft-16 cursor-default" style="text-align:right">
+                    <a class="margin-0 colorblack">@Model.CurrentUser.Name</a>
+                    <a class="margin-0 colorblack">@Model.CurrentUser.Email</a>
+                </div>
+                <div title="Выйти">
+                    <svg onclick="Logout()" class="cursor-pointer mrleft-16" width="35" height="35" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <g id="Iconly/Bulk/Login">
+                            <g id="Login">
+                                <path id="Fill 1" opacity="0.4"
+                                      d="M7.2962 6.446C7.2962 3.995 9.356 2 11.8876 2H16.9199C19.4454 2 21.5 3.99 21.5 6.436V17.552C21.5 20.004 19.4413 22 16.9096 22H11.8773C9.35187 22 7.2962 20.009 7.2962 17.562V16.622V6.446Z"
+                                      fill="#3C21F7" />
+                                <path id="Fill 4"
+                                      d="M16.0374 11.4538L13.0695 8.54479C12.7627 8.24479 12.2691 8.24479 11.9634 8.54679C11.6587 8.84879 11.6597 9.33579 11.9654 9.63579L13.5905 11.2288H3.2821C2.85042 11.2288 2.5 11.5738 2.5 11.9998C2.5 12.4248 2.85042 12.7688 3.2821 12.7688H13.5905L11.9654 14.3628C11.6597 14.6628 11.6587 15.1498 11.9634 15.4518C12.1168 15.6028 12.3168 15.6788 12.518 15.6788C12.717 15.6788 12.9171 15.6028 13.0695 15.4538L16.0374 12.5448C16.1847 12.3998 16.268 12.2038 16.268 11.9998C16.268 11.7948 16.1847 11.5988 16.0374 11.4538Z"
+                                      fill="#3C21F7" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="w-50admin mrtop-32" style="margin-left: auto; margin-right: auto">
+        <p class="margin-0 mrtop-16 fontweightbold fontsize18">Новость проекта</p>
+        <textarea class="mrtop-16 inpforadmin" name="areaadminnews" id="areaadminnews" placeholder="Ввести новую новость..." style="font-family: 'Inter', sans-serif; font-size: 16px; padding-top: 8px;"></textarea>
+        <input type="button" value="Отправить пользователям" class="inpforrec mrtop-16 cursor-pointer" style="width: 100% !important" onclick="SendNews(this.form.areaadminnews.value)">
+    </form>
+
+    <hr class="w-50admin mrtop-32" style="margin-left: auto; margin-right: auto">
+
+    <form class="w-50admin mrtop-32" style="margin-left: auto; margin-right: auto">
+        <p class="margin-0 fontweightbold fontsize18">Поиск пользователя</p>
+        <div class="d-flex alignitems-center mrtop-16">
+            <div class="justify-content-start w-10per">
+                <p class="margin-0 fontweightitalic mrright-16">Имя:</p>
+            </div>
+            <div class="justify-content-end">
+                <input type="text" placeholder="Олег" class="inpforadmin" id="name" name="name" value="@ViewBag.SelectedName" />
+            </div>
+        </div>
+
+        <div class="d-flex alignitems-center mrtop-16">
+            <div class="justify-content-start w-10per">
+                <p class="margin-0 fontweightitalic mrright-16">Email:</p>
+            </div>
+            <div class="justify-content-end">
+                <input type="email" placeholder="oleg@mail.ru" class="inpforadmin" id="email" name="email" value="@ViewBag.SelectedEmail" />
+            </div>
+        </div>
+
+        <div class="d-flex alignitems-center mrtop-16">
+            <div class="justify-content-start w-10per">
+                <p class="margin-0 fontweightitalic mrright-16">Роль:</p>
+            </div>
+            <div class="justify-content-end">
+                <select class="selforadmin" id="role" name="role">
+                    @if (ViewBag.SelectedRole == 1)
+                    {
+                        <option value="1" selected>Администратор</option>
+                        <option value="2">Фрилансер</option>
+                    }
+                    else if (ViewBag.SelectedRole == 2)
+                    {
+                        <option value="1">Администратор</option>
+                        <option value="2" selected>Фрилансер</option>
+                    }
+                    else
+                    {
+                        <option value="1">Администратор</option>
+                        <option value="2">Фрилансер</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="d-flex alignitems-center mrtop-16">
+            <div class="justify-content-start w-10per">
+                <p class="margin-0 fontweightitalic mrright-16">Статус:</p>
+            </div>
+            <div class="justify-content-end">
+                <select class="selforadmin" id="isRemoved" name="isRemoved">
+                    @if (ViewBag.SelectedStatus == 1)
+                    {
+                        <option value="1" selected>Удален</option>
+                        <option value="0">Активен</option>
+                    }
+                    else if (ViewBag.SelectedStatus == 0)
+                    {
+                        <option value="1">Удален</option>
+                        <option value="0" selected>Активен</option>
+                    }
+                    else
+                    {
+                        <option value="1">Удален</option>
+                        <option value="0">Активен</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <input type="button" value="Поиск" class="inpforrec mrtop-16 cursor-pointer" style="width: 100% !important" onclick="SearchUser(this.form.name.value, this.form.email.value, this.form.role.value, this.form.isRemoved.value)">
+        <a href="/Admin/Index" style="color: #0000FF" class="margin-0">Сбросить поиск</a>
+
+        <table style="width: 100%; border-collapse: collapse;" class="mrtop-16 mrbottom-32">
+            <thead style="background-color: #dddddd;">
+                <tr>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Id</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Name</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Email</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Role</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">isRemoved</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Logs</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var user in ViewBag.AllUsers)
+                {
+                    <tr>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@user.Id</td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@user.Name</td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@user.Email</td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@Model.Roles.FirstOrDefault(q => q.Id == user.RoleId).Name</td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@GetRemovedLabel(user.isRemoved)</td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;"><a onclick="openModalOpenLogs({ url: '/Partial/OpenLogs', data: '@user.Id' });" class="cursor-pointer" style="color: #0000FF">Открыть логи</a></td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">
+                            @if (user.isRemoved == false)
+                            {
+                                if (user.RoleId == 2)
+                                {
+                                    <a href="/Admin/ActionsUser?type=del&srchuser=@user.Id" style="color: #0000FF">
+                                        Удалить
+                                    </a>
+                                }
+                            }
+                            else
+                            {
+                                <a href="/Admin/ActionsUser?type=rec&srchuser=@user.Id" style="color: #0000FF">
+                                    Восстановить
+                                </a>
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="modal-background" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

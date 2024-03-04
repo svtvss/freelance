@@ -1,0 +1,43 @@
+﻿@{
+    int count = 1;
+}
+
+<form class="fontsize20" style="max-height: 900px; overflow-x: auto; ">
+    <div class="cursor-default">
+        <p class="margin-0 fontsize20"><b>Имя:</b> @ViewBag.User.Name</p>
+
+        <p class="margin-0 fontsize20 mrtop-16"><b>Email:</b> @ViewBag.User.Email</p>
+
+        <p class="margin-0 fontsize20"><b>Роль:</b> @ViewBag.UserRole</p>
+
+        @if (ViewBag.UserRole == "Фрилансер")
+        {
+            <a href="/Admin/ResetPassword?userid=@ViewBag.User.Id" style="color: #0000FF">Сбросить пароль</a>
+        }
+
+        <table style="width: 100%; border-collapse: collapse;" class="mrtop-16">
+            <thead style="background-color: #dddddd;">
+                <tr>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">№</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Наименование</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Дата и время</th>
+                    <th style="border: 1px solid #dddddd; padding: 8px;">Описание</th>
+                </tr>
+            </thead>
+
+            <tbody style="">
+                @foreach (var log in ViewBag.Logs)
+                {
+                    <tr>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@count</td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@log.Action</td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@log.Timestamp</td>
+                        <td style="border: 1px solid #dddddd; padding: 8px;">@log.Description</td>
+                    </tr>
+                    count++;
+                }
+            </tbody>
+        </table>
+
+    </div>
+</form>

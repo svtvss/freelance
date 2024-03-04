@@ -1,0 +1,17 @@
+﻿@{
+}
+
+<p class="margin-0 fontweightbold fontsize24">Внимание!</p>
+<p class="margin-0 mrtop-16 mrbottom-16 fontsize20">Делитесь этим QR-кодом, только с тем человеком, которого хотите включить в проект!</p>
+<div style="display:flex; justify-content:center" id="qrcodeimage"></div>
+
+<script>
+    var url = '@ViewBag.QrLink';
+
+    // Генерация QR-кода
+    var qrcode = new QRCode(document.getElementById("qrcodeimage"), {
+        text: url,
+        width: 256,
+        height: 256
+    });
+</script>

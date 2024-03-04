@@ -1,0 +1,35 @@
+﻿@model ContextManager
+@{
+    DateTime projstartdate = ViewBag.Project.StartDate;
+    DateTime projenddate = ViewBag.Project.EndDate;
+}
+
+<form>
+    <div>
+        <p class="margin-0 fontweightbold fontsize20">Наименование задачи:</p>
+        <input type="text" class="inpforoldpas mrtop-8" id="taskname" name="taskname" required style="font-size: 18px"/>
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Описание задачи:</p>
+        <textarea class="inpforoldpas mrtop-8" id="taskdesc" name="taskdesc" required></textarea>
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Приоритет задачи:</p>
+        <select class="" name="taskpriority" id="taskpriority" required style="font-size: 18px">
+            <option value="Низкий">Низкий</option>
+            <option value="Средний">Средний</option>
+            <option value="Высокий">Высокий</option>
+        </select>
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Начальная дата: </p>
+        <input type="date" class="inpforoldpas mrtop-8" style="font-size: 18px" id="taskstartdate" name="taskstartdate" min="@projstartdate.ToString("yyyy-MM-dd")" max="@projenddate.ToString("yyyy-MM-dd")" onchange="createTaskDateValidation()" onkeydown="return false" required />
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Конечная дата: </p>
+        <input type="date" class="inpforoldpas mrtop-8" style="font-size: 18px" id="taskenddate" name="taskenddate" max="@projenddate.ToString("yyyy-MM-dd")" onkeydown="return false" required />
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16" for="files">Выберите файлы:</p>
+        <input type="file" id="files" name="files" multiple />
+
+        <div class="d-flex justify-content-center">
+            <input type="button" id="btncreatetask" onclick="CreTask('@Model.CurrentUser.Id', '@ViewBag.Project.Id', this.form.taskname.value, this.form.taskdesc.value, this.form.taskpriority.value, this.form.taskstartdate.value, this.form.taskenddate.value)" class="input-button-login mrtop-16" style="text-align: center;" value="Добавить задачу" />
+        </div>
+    </div>
+</form>

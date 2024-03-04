@@ -1,0 +1,229 @@
+﻿@model ContextManager
+@{
+    ViewData["Title"] = "Панель";
+    var user = Model.CurrentUser;
+    ViewBag.ActivePage = "Index";
+}
+
+<div class="accountback mrtop-16 mediadisablepad" onload="drawTasksChart(); drawProjectsChart();">
+    <div class="d-flex alignitems-center mediafuctionsdisplayblock">
+        <div class="padd-24-24 borderradius-6 d-flex elem25per bgcFFF8E5 mrleft-1per mrright-1per alignitems-center mediaaddwidth">
+            <svg class="mediafuctionslogosnone" width="40" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25.5" cy="25.5" r="25.5" fill="url(#paint0_linear_127_240)" />
+                <path d="M32.7695 24.6453C32.039 23.7923 31.7071 23.0531 31.7071 21.7972V21.3701C31.7071 19.7335 31.3304 18.6791 30.5115 17.6246C29.2493 15.987 27.1244 15 25.0442 15H24.9558C22.9194 15 20.8611 15.9417 19.577 17.5128C18.7133 18.5884 18.2929 19.6882 18.2929 21.3701V21.7972C18.2929 23.0531 17.9828 23.7923 17.2305 24.6453C16.6769 25.2738 16.5 26.0815 16.5 26.9557C16.5 27.8309 16.7872 28.6598 17.3637 29.3336C18.116 30.1413 19.1785 30.6569 20.2638 30.7466C21.835 30.9258 23.4063 30.9933 25.0005 30.9933C26.5937 30.9933 28.165 30.8805 29.7372 30.7466C30.8215 30.6569 31.884 30.1413 32.6363 29.3336C33.2118 28.6598 33.5 27.8309 33.5 26.9557C33.5 26.0815 33.3231 25.2738 32.7695 24.6453Z"
+                      fill="white" />
+                <path opacity="0.4"
+                      d="M27.0087 32.2284C26.5088 32.1216 23.4626 32.1216 22.9627 32.2284C22.5353 32.3271 22.0732 32.5567 22.0732 33.0602C22.098 33.5406 22.3793 33.9647 22.7689 34.2336L22.7679 34.2346C23.2718 34.6273 23.8631 34.8771 24.4823 34.9668C24.8123 35.0121 25.1482 35.0101 25.4901 34.9668C26.1083 34.8771 26.6996 34.6273 27.2035 34.2346L27.2025 34.2336C27.5921 33.9647 27.8734 33.5406 27.8982 33.0602C27.8982 32.5567 27.4361 32.3271 27.0087 32.2284Z"
+                      fill="white" />
+                <defs>
+                    <linearGradient id="paint0_linear_127_240" x1="25" y1="-25.5" x2="25" y2="93"
+                                    gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#FFBF08" />
+                        <stop offset="1" stop-color="#FFEA5F" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <a href="/Home/Notifications" class="margin-0 colorblack fontweightbold mrleft-16 fontsize18 mediafuctionsnamemrleft0">Уведомления</a>
+        </div>
+        <div class="padd-24-24 borderradius-6 d-flex elem25per bgcE4F8EB mrleft-1per mrright-1per alignitems-center mediaaddwidth">
+            <svg class="mediafuctionslogosnone" width="40" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25.5" cy="25.5" r="25.5" fill="url(#paint0_linear_127_241)" />
+                <path d="M32.7695 24.6453C32.039 23.7923 31.7071 23.0531 31.7071 21.7972V21.3701C31.7071 19.7335 31.3304 18.6791 30.5115 17.6246C29.2493 15.987 27.1244 15 25.0442 15H24.9558C22.9194 15 20.8611 15.9417 19.577 17.5128C18.7133 18.5884 18.2929 19.6882 18.2929 21.3701V21.7972C18.2929 23.0531 17.9828 23.7923 17.2305 24.6453C16.6769 25.2738 16.5 26.0815 16.5 26.9557C16.5 27.8309 16.7872 28.6598 17.3637 29.3336C18.116 30.1413 19.1785 30.6569 20.2638 30.7466C21.835 30.9258 23.4063 30.9933 25.0005 30.9933C26.5937 30.9933 28.165 30.8805 29.7372 30.7466C30.8215 30.6569 31.884 30.1413 32.6363 29.3336C33.2118 28.6598 33.5 27.8309 33.5 26.9557C33.5 26.0815 33.3231 25.2738 32.7695 24.6453Z"
+                      fill="white" />
+                <path opacity="0.4"
+                      d="M27.0087 32.2284C26.5088 32.1216 23.4626 32.1216 22.9627 32.2284C22.5353 32.3271 22.0732 32.5567 22.0732 33.0602C22.098 33.5406 22.3793 33.9647 22.7689 34.2336L22.7679 34.2346C23.2718 34.6273 23.8631 34.8771 24.4823 34.9668C24.8123 35.0121 25.1482 35.0101 25.4901 34.9668C26.1083 34.8771 26.6996 34.6273 27.2035 34.2346L27.2025 34.2336C27.5921 33.9647 27.8734 33.5406 27.8982 33.0602C27.8982 32.5567 27.4361 32.3271 27.0087 32.2284Z"
+                      fill="white" />
+                <defs>
+                    <linearGradient id="paint0_linear_127_241" x1="25" y1="-25.5" x2="25" y2="93"
+                                    gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#048A42" />
+                        <stop offset="1" stop-color="#50E680" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <a href="/Action/Projects" class="margin-0 colorblack fontweightbold mrleft-16 fontsize18 mediafuctionsnamemrleft0">Проекты</a>
+        </div>
+        <div class="padd-24-24 borderradius-6 d-flex elem25per bgcEBE8FE mrleft-1per mrright-1per alignitems-center mediaaddwidth">
+            <svg class="mediafuctionslogosnone" width="40" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25.5" cy="25.5" r="25.5" fill="url(#paint0_linear_127_242)" />
+                <path d="M32.7695 24.6453C32.039 23.7923 31.7071 23.0531 31.7071 21.7972V21.3701C31.7071 19.7335 31.3304 18.6791 30.5115 17.6246C29.2493 15.987 27.1244 15 25.0442 15H24.9558C22.9194 15 20.8611 15.9417 19.577 17.5128C18.7133 18.5884 18.2929 19.6882 18.2929 21.3701V21.7972C18.2929 23.0531 17.9828 23.7923 17.2305 24.6453C16.6769 25.2738 16.5 26.0815 16.5 26.9557C16.5 27.8309 16.7872 28.6598 17.3637 29.3336C18.116 30.1413 19.1785 30.6569 20.2638 30.7466C21.835 30.9258 23.4063 30.9933 25.0005 30.9933C26.5937 30.9933 28.165 30.8805 29.7372 30.7466C30.8215 30.6569 31.884 30.1413 32.6363 29.3336C33.2118 28.6598 33.5 27.8309 33.5 26.9557C33.5 26.0815 33.3231 25.2738 32.7695 24.6453Z"
+                      fill="white" />
+                <path opacity="0.4"
+                      d="M27.0087 32.2284C26.5088 32.1216 23.4626 32.1216 22.9627 32.2284C22.5353 32.3271 22.0732 32.5567 22.0732 33.0602C22.098 33.5406 22.3793 33.9647 22.7689 34.2336L22.7679 34.2346C23.2718 34.6273 23.8631 34.8771 24.4823 34.9668C24.8123 35.0121 25.1482 35.0101 25.4901 34.9668C26.1083 34.8771 26.6996 34.6273 27.2035 34.2346L27.2025 34.2336C27.5921 33.9647 27.8734 33.5406 27.8982 33.0602C27.8982 32.5567 27.4361 32.3271 27.0087 32.2284Z"
+                      fill="white" />
+                <defs>
+                    <linearGradient id="paint0_linear_127_242" x1="25" y1="-25.5" x2="25" y2="93"
+                                    gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#3F24F7" />
+                        <stop offset="1" stop-color="#8E7FFE" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <a href="/Action/Tasks" class="margin-0 colorblack fontweightbold mrleft-16 fontsize18 mediafuctionsnamemrleft0">Задачи</a>
+        </div>
+        <div onclick="openModalCreateProject({ url: '/Partial/CreateProject', data: '@Model.CurrentUser.Id' });" class="cursor-pointer padd-24-24 borderradius-6 d-flex elem25per bgc3C21F7 mrleft-1per mrright-1per alignitems-center mediaaddwidth" title="Создание нового проекта">
+            <svg class="mediafuctionslogosnone" width="40" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25.5" cy="25.5" r="25.5" fill="white" />
+                <path opacity="0.4"
+                      d="M32.8088 23.021C32.3573 23.021 31.7592 23.011 31.0146 23.011C29.1987 23.011 27.7055 21.508 27.7055 19.675V16.459C27.7055 16.206 27.5026 16 27.253 16H21.9636C19.4952 16 17.5 18.026 17.5 20.509V31.284C17.5 33.889 19.5902 36 22.1696 36H30.0453C32.5058 36 34.5 33.987 34.5 31.502V23.471C34.5 23.217 34.298 23.012 34.0465 23.013C33.6247 23.016 33.1168 23.021 32.8088 23.021Z"
+                      fill="#3C21F7" />
+                <path opacity="0.4"
+                      d="M30.0841 16.5673C29.7851 16.2563 29.2631 16.4703 29.2631 16.9013V19.5383C29.2631 20.6443 30.1741 21.5543 31.2791 21.5543C31.9771 21.5623 32.9451 21.5643 33.7671 21.5623C34.1881 21.5613 34.4021 21.0583 34.1101 20.7543C33.0551 19.6573 31.1661 17.6913 30.0841 16.5673Z"
+                      fill="#3C21F7" />
+                <path d="M28.3673 26.2363H26.6393V24.5093C26.6393 24.0983 26.3063 23.7643 25.8953 23.7643C25.4843 23.7643 25.1503 24.0983 25.1503 24.5093V26.2363H23.4233C23.0123 26.2363 22.6793 26.5703 22.6793 26.9813C22.6793 27.3923 23.0123 27.7263 23.4233 27.7263H25.1503V29.4523C25.1503 29.8633 25.4843 30.1973 25.8953 30.1973C26.3063 30.1973 26.6393 29.8633 26.6393 29.4523V27.7263H28.3673C28.7783 27.7263 29.1123 27.3923 29.1123 26.9813C29.1123 26.5703 28.7783 26.2363 28.3673 26.2363Z"
+                      fill="#3C21F7" />
+            </svg>
+            <div class="mrleft-16 fontsize18 colorwhite fontweightbold mediafuctionsnamemrleft0">
+                <a class="margin-0">Новый</a>
+                <a class="margin-0">Проект</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div class="modal-background" id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(function () {
+        console.log('Google Charts is ready.');
+        drawTasksChart();
+        drawProjectsChart();
+    });
+
+    function drawTasksChart(uid) {
+        $.ajax({
+            url: `/Home/GetCompletedTasksData?userid=@Model.CurrentUser.Id`,
+            method: 'GET',
+            success: function (data) {
+                var chartData = new google.visualization.DataTable();
+                chartData.addColumn('string', 'Месяц');
+                chartData.addColumn('number', 'Выполненные задачи');
+
+                data.forEach(function (item) {
+                    chartData.addRow([item.month, item.completedTasks]);
+                });
+
+                var options = {
+                    title: 'Статистика выполненных задач по месяцам',
+                    curveType: 'none',
+                    vAxis: { minValue: 0 },
+                    legend: { position: 'bottom' },
+                    chartArea: { width: '85%', height: '80%' },
+                    titleTextStyle: {
+                        fontSize: 16,
+                        bold: false,
+                        color: 'black'
+                    },
+                    series: {
+                        0: {
+                            lineWidth: 2
+                        }
+                    },
+                    isStacked: 'absolute'
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('chartfortasks'));
+
+                chart.draw(chartData, options);
+            }
+        });
+    }
+
+    function drawProjectsChart() {
+        $.ajax({
+            url: `/Home/GetCompletedProjectsData?userid=@Model.CurrentUser.Id`,
+            method: 'GET',
+            success: function (data) {
+                var chartData = new google.visualization.DataTable();
+                chartData.addColumn('string', 'Месяц');
+                chartData.addColumn('number', 'Выполненные проекты');
+
+                data.forEach(function (item) {
+                    chartData.addRow([item.month, item.completedTasks]);
+                });
+
+                var options = {
+                    title: 'Статистика выполненных проектов по месяцам',
+                    curveType: 'none',
+                    vAxis: { minValue: 0 },
+                    legend: { position: 'bottom' },
+                    chartArea: { width: '85%', height: '80%' },
+                    titleTextStyle: {
+                        fontSize: 16,
+                        bold: false,
+                        color: 'black',
+                        alignment: 'center',
+                        margin: 10
+                    },
+                    series: {
+                        0: {
+                            lineWidth: 2
+                        }
+                    }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('chartforprojects'));
+
+                chart.draw(chartData, options);
+            }
+        });
+    }
+</script>
+
+<div class="d-flex alignitems-center mediadiagramswrap">
+    <div class="svgback mrtop-16 mrright-1per w-50per mediadiagrams">
+        <div class="svg-container cursor-pointer" id="chartfortasks" style="height: 300px" onclick="pdfsave('@Model.CurrentUser.Id')" title="Скачать диаграмму">
+            
+        </div>
+    </div>
+    <div class="svgback mrtop-16 mrleft-1per w-50per mediadiagrams">
+        <div class="svg-container cursor-pointer" id="chartforprojects" style="height: 300px" onclick="pdfsave2('@Model.CurrentUser.Id')" title="Скачать диаграмму">
+            
+        </div>
+    </div>
+</div>
+
+<div class="d-flex alignitems-center mediaindexlastbuttons">
+    <div class="accountback mrtop-16 mrright-1per w-50per cursor-pointer mediaindexlastbutton" onclick="RedirectTo('Home/Reports#myportfolio')">
+        <div class="d-flex alignitems-center justify-content-space-between">
+            <a href="/Home/Reports#myportfolio" class="fontweightbold colorblack fontsize18">Мое портфолио</a>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="min-width: 24px">
+                <path d="M12 16L16 12M16 12L12 8M16 12H8M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                      stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+    </div>
+    <div class="accountback mrtop-16 mrleft-1per w-50per cursor-pointer mediaindexlastbutton" onclick="RedirectTo('Home/Reports')">
+        <div class="d-flex alignitems-center justify-content-space-between">
+            <a href="/Home/Reports" class="fontweightbold colorblack fontsize18">Мои отчеты</a>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="min-width: 24px">
+                <path d="M12 16L16 12M16 12L12 8M16 12H8M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                      stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex alignitems-center mediadiagramswrap" style="visibility: collapse">
+    <div class="svgback mrtop-16 mrright-1per w-50per mediadiagrams" style="height: 200px; position: absolute; top: 600px; left: -100px; width: 120vh !important; ">
+        <div class="svg-container cursor-pointer" id="chartfortasks2" style="height: 300px" onclick="pdfsave('@Model.CurrentUser.Id')" title="Скачать диаграмму">
+
+        </div>
+    </div>
+    <div class="svgback mrtop-16 mrleft-1per w-50per mediadiagrams" style="height: 250px; position: absolute; top: 600px; left: -100px; width: 120vh !important; ">
+        <div class="svg-container cursor-pointer" id="chartforprojects2" style="height: 300px" onclick="pdfsave2('@Model.CurrentUser.Id')" title="Скачать диаграмму">
+
+        </div>
+    </div>
+</div>

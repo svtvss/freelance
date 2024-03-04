@@ -1,0 +1,24 @@
+﻿@{
+    var userid = ViewBag.IdUser;
+    var today = DateTime.Now.ToString("yyyy-MM-dd");
+}
+
+<form>
+    <div>
+        <p class="margin-0 fontweightbold fontsize20">Наименование проекта: </p>
+        <input type="text" class="inpforoldpas mrtop-8" id="projname" name="projname"/>
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Описание: </p>
+        <textarea class="inpforoldpas mrtop-8" id="projdesc" name="projdesc"></textarea>
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Начальная дата: </p>
+        <input type="date" class="inpforoldpas mrtop-8" id="projstartdate" name="projstartdate" min="@today" onchange="createProjDateValidation()" onkeydown="return false"/>
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Конечная дата: </p>
+        <input type="date" class="inpforoldpas mrtop-8" id="projenddate" name="projenddate" onkeydown="return false"/>
+
+        <div class="d-flex justify-content-center">
+            <input type="button" id="btncreateproj" onclick="CreProject('@userid', this.form.projname.value, this.form.projdesc.value, this.form.projstartdate.value, this.form.projenddate.value)" class="input-button-login mrtop-16" style="text-align: center;" value="Добавить проект" />
+        </div>
+    </div>
+</form>

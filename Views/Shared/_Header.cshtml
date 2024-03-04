@@ -1,0 +1,19 @@
+﻿@model ContextManager
+@{
+    var user = Model.CurrentUser;
+}
+
+<div class="d-flex alignitems-center justify-content-space-between">
+    <div class="justify-content-start">
+        
+    </div>
+
+    <div class="justify-content-end">
+        <div class="d-flex alignitems-center">
+            <div class="mrleft-16" style="text-align:right">
+                <a href="/General/Account" class="margin-0 colorblack" id="username">@user.Name</a>
+                <a href="/General/Account" class="margin-0 colorblack" id="useremail">@user.Email</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProLogs - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body class="login">
+    <div class="d-flex alignitems-center medialogon">
+        <div class="loginbackleft cursor-default">
+            <p style="text-wrap:normal" class="fontsize20 margin-0"><span class="colorE56F8C">ProLogs</span> - это система управления задачами и проектами для фрилансеров, который позволяет:</p>
+            <ul style="list-style-type:square;" class="margin-0 mrtop-8 fontsize18">
+                <li>cоздавать проекты и задачи совместно или в одиночку</li>
+                <li>контролировать успешность выполнения задач и проектов</li>
+                <li>получать только необходимые уведомления</li>
+                <li>печатать автоматические отчеты</li>
+                <li>получать свое готовое портфолио</li>
+            </ul>
+            <p style="text-wrap:normal" class="fontsize20 margin-0 mrtop-8">Желаем с удобством провести свое время в этом сервисе!</p>
+            <p class="fontsize20 margin-0 mrtop-8">Поддержка: <a href="mailto:prologs@mail.ru" class="colorE56F8C fontsize20" style="display:inline">prologs@mail.ru</a></p>
+        </div>
+        <div class="loginback">
+            <div class="d-flex">
+                <svg class="logonsvg" style="display: block; margin: auto" width="250" height="200" viewBox="0 0 58 44" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.6063 40.419C12.5737 45.4549 4.0503 45.4348 1.66995 38.7232C1.20391 37.4092 0.831297 36.0581 0.557239 34.6795C-0.561731 29.0503 0.0125652 23.2158 2.20751 17.9134C4.40245 12.611 8.11944 8.07902 12.8885 4.89045C17.6576 1.70189 23.2644 -2.45848e-07 29.0001 0C34.7357 2.45848e-07 40.3426 1.70189 45.1115 4.89045C49.8806 8.07902 53.5976 12.6111 55.7925 17.9135C57.9875 23.2158 58.5617 29.0503 57.4428 34.6795C57.1688 36.0581 56.7961 37.4092 56.33 38.7232C53.9496 45.4348 45.4263 45.4549 40.3936 40.419L32.625 32.6455C31.8828 31.9028 31.9595 30.678 32.1642 29.648C32.2886 29.0218 32.2247 28.3728 31.9805 27.7829C31.7363 27.193 31.3229 26.6887 30.7924 26.3341C30.2619 25.9795 29.6381 25.7901 29.0001 25.7901C28.362 25.7901 27.7383 25.9795 27.2077 26.3341C26.677 26.6887 26.2636 27.193 26.0194 27.7829C25.7752 28.3728 25.7113 29.0218 25.8359 29.648C26.0406 30.678 26.1172 31.9028 25.375 32.6455L17.6063 40.419Z"
+                          fill="url(#paint0_linear_11_13467)" />
+                    <defs>
+                        <linearGradient id="paint0_linear_11_13467" x1="55.3603" y1="14.5091" x2="3.88528" y2="14.5091"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#64C2DB" />
+                            <stop offset="0.510417" stop-color="#7476ED" />
+                            <stop offset="1" stop-color="#E56F8C" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <p class="d-flex margin-0 fontsize24 fontweightbold justify-content-center mrtop-32">Авторизация</p>
+            <form asp-controller="Logon" asp-action="Login" method="post" class="mrtop-16">
+                <input type="email" id="useremail" name="useremail" class="mrtop-16 input-text-login" placeholder="Электронная почта">
+                <input type="password" id="userpassword" name="userpassword" class="mrtop-16 input-text-login" placeholder="Пароль">
+                <input type="submit" value="Продолжить" class="mrtop-16 input-button-login">
+            </form>
+            <a href="/Logon/Register" class="margin-0 mrtop-16 colorblack d-flex justify-content-end hoverE56F8C">Регистрация</a>
+            <a href="/Logon/Recovery" class="margin-0 mrtop-8 colorblack d-flex justify-content-end hoverE56F8C">Восстановление пароля</a>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+
+</html>

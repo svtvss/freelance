@@ -1,0 +1,1181 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0 0 0 0;
+    background-color: #F9FAFE;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+p {
+    color: black;
+}
+
+hr {
+    color: #c0c0c0;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    padding-left: 24px;
+    padding-right: 16px;
+    border-radius: 6px;
+    background-color: white;
+    border: 1px solid #787486;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.inputsort {
+    width: 100%;
+    padding: 8px;
+    padding-left: 24px;
+    padding-right: 16px;
+    border-radius: 30px;
+    background-color: #F9FAFE;
+    border: 1px solid #787486;
+    font-size: 14px;
+}
+
+.leftbar {
+    position: relative;
+    width: 25%;
+    padding: 32px 16px 32px 16px;
+}
+
+.leftbarback {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    border: thick solid #eeeeee;
+    border-width: 1px;
+    padding: 32px 0px 32px 0px;
+}
+
+.rightbar {
+    position: relative;
+    width: 75%;
+    padding: 32px 32px 32px 16px;
+}
+
+.projectnameback {
+    position: relative;
+    background-color: white;
+    border-radius: 6px;
+    padding: 8px 32px 8px 32px;
+}
+
+.taskback {
+    position: relative;
+    background-color: white;
+    border-radius: 6px;
+    padding: 16px 32px 16px 32px;
+    width: 30%;
+}
+
+.projectlist {
+    position: relative;
+    background-color: white;
+    border-radius: 6px;
+    padding: 16px 32px 16px 32px;
+}
+
+.accountback {
+    position: relative;
+    background-color: white;
+    border-radius: 6px;
+    padding: 16px 32px 16px 32px;
+}
+
+.svgback {
+    background-color: white;
+    border-radius: 6px;
+    padding: 16px;
+    width: 50%;
+    max-width: 100%;
+    margin: 16px auto;
+    margin-bottom: 0px !important;
+    position: relative;
+}
+
+.svg-container {
+    position: relative;
+}
+
+.w-25per {
+    width: 25%;
+}
+
+.w-30per {
+    width: 30%;
+}
+
+.w-10per {
+    width: 10%;
+}
+
+.taskbackgray {
+    background-color: #F9FAFE;
+    border-radius: 6px;
+    padding: 24px 32px 24px 32px;
+}
+
+.taskpropertyback {
+    border-radius: 6px;
+    padding: 4px 8px 4px 8px;
+}
+
+.container {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: center;
+}
+
+.imgaccount {
+    border-radius: 50%;
+}
+
+.bgDFA874 {
+    background-color: #e7c29e;
+}
+
+.cC98E57 {
+    color: #c98e57;
+}
+
+.bgD8727D {
+    background-color: #D8727D;
+}
+
+.c9E2D38 {
+    color: #9e2d38;
+}
+
+.bg8BC48A {
+    background-color: #8BC48A;
+}
+
+.c4F9C4E {
+    color: #4f9c4e;
+}
+
+.display-inline-block {
+    display: inline-block !important;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.h-15px {
+    height: 15px !important;
+}
+
+.h-20px {
+    height: 20px !important;
+}
+
+.inpforrec {
+    height: 38px;
+    background-color: #E56F8C;
+    color: white;
+    font-weight: bold;
+    width: 50% !important;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.inpforoldpas {
+    height: 20px;
+    text-align: center;
+    background-color: #F9FAFE;
+    color: black;
+    width: 100% !important;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.circle {
+    background-color: #001c8d;
+    width: 20px;
+    height: 20px;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+.justify-content-start {
+    justify-content: start;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.border {
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+}
+
+.w-100per {
+    width: 100%;
+}
+
+.border-purple {
+    border: 1px solid #c8aaff;
+    border-radius: 10px;
+}
+
+.width-auto {
+    width: auto;
+}
+
+.margin-0-auto {
+    margin: 0 auto;
+}
+
+.backgrnd-gray {
+    background-color: #f5f5f5;
+}
+
+.colorE56F8C {
+    color: #E56F8C;
+}
+
+    .colorE56F8C:hover {
+        color: black;
+    }
+
+.d-flex {
+    display: flex;
+}
+
+.d-inline {
+    display: inline !important;
+}
+
+.floatright {
+    float: right;
+}
+
+.padd-8 {
+    padding: 8px;
+}
+
+.padd-16 {
+    padding: 16px;
+}
+
+.padd-24-32 {
+    padding: 24px 32px;
+}
+
+.padd-24-24 {
+    padding: 24px 24px;
+}
+
+.w-50per {
+    width: 50%;
+}
+
+.margin-0 {
+    margin: 0;
+}
+
+.mrtop-32 {
+    margin-top: 32px;
+}
+
+.mrtop-40 {
+    margin-top: 40px;
+}
+
+.mrtop-48 {
+    margin-top: 48px;
+}
+
+.mrtop-16 {
+    margin-top: 16px;
+}
+
+.mrtop-8 {
+    margin-top: 8px;
+}
+
+.mrleft-16 {
+    margin-left: 16px;
+}
+
+.mrleft-20 {
+    margin-left: 20px;
+}
+
+.mrleft-24 {
+    margin-left: 24px;
+}
+
+.mrleft-28 {
+    margin-left: 28px;
+}
+
+.mrleft-32 {
+    margin-left: 32px;
+}
+
+.mrleft-44 {
+    margin-left: 44px;
+}
+
+.mrleft-4 {
+    margin-left: 4px;
+}
+
+.mrleft-8 {
+    margin-left: 8px;
+}
+
+.mrright-8 {
+    margin-right: 8px;
+}
+
+.mrright-1per {
+    margin-right: 1%;
+}
+
+.mrleft-1per {
+    margin-left: 1%;
+}
+
+.mrright-05per {
+    margin-right: 0.5%;
+}
+
+.mrleft-05per {
+    margin-left: 0.5%;
+}
+
+.mrright-16 {
+    margin-right: 16px;
+}
+
+.mrbottom-8 {
+    margin-bottom: 8px;
+}
+
+.mrbottom-16 {
+    margin-bottom: 16px;
+}
+
+.margin-8{
+    margin: 8px;
+}
+
+.elem25per {
+    width: 20%;
+    max-width: 25%;
+}
+
+.borderradius-6 {
+    border-radius: 6px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+#chartfortaskss {
+    visibility: hidden;
+}
+
+.cursor-default{
+    cursor: default;
+}
+
+.alignitems-center {
+    align-items: center;
+}
+
+.alignitems-start {
+    align-items: start;
+}
+
+.bgcFFF8E5 {
+    background-color: #FFF8E5;
+}
+
+.bgcE4F8EB {
+    background-color: #E4F8EB;
+}
+
+.bgcEBE8FE {
+    background-color: #EBE8FE;
+}
+
+.bgc3C21F7 {
+    background-color: #3C21F7;
+}
+
+.colorblack {
+    color: black;
+}
+
+.colorwhite {
+    color: white;
+}
+
+.color878787 {
+    color: #878787;
+}
+
+.color3C21F7 {
+    color: #3C21F7;
+}
+
+.fontweightbold {
+    font-weight: bold;
+}
+
+.fontweightitalic {
+    font-style:italic;
+}
+
+.fontweightregular {
+    font-weight: normal;
+}
+
+.fontweightbolder {
+    font-weight: bolder;
+}
+
+.fontsize8 {
+    font-size: 8px;
+}
+
+.fontsize12 {
+    font-size: 12px;
+}
+
+.fontsize14 {
+    font-size: 14px;
+}
+
+.fontsize16 {
+    font-size: 16px;
+}
+
+.fontsize18 {
+    font-size: 18px;
+}
+
+.fontsize20 {
+    font-size: 20px;
+}
+
+.fontsize24 {
+    font-size: 24px;
+}
+
+.fontsize32 {
+    font-size: 32px;
+}
+
+.login {
+    font-family: 'Inter', sans-serif;
+    margin: 0 0 0 0;
+    background-color: #F9FAFE;
+    display: flex;
+    margin: 0 auto;
+    padding: 32px;
+    padding-top: 5%;
+    width: 60%;
+    max-width: 60%;
+}
+
+.loginbackleft{
+    width: 60%;
+    padding: 0px;
+    margin-right: 1%;
+}
+
+.loginback {
+    background-color: white;
+    border-radius: 6px;
+    border: thick solid #eeeeee;
+    border-width: 1px;
+    width: 40%;
+    padding: 32px;
+    margin-left: 1%;
+}
+
+.logologin {
+    margin: auto 0;
+    margin-right: 3%;
+}
+
+input {
+    height: 50px;
+    width: 100%;
+    border: 1px solid #eeeeee;
+    padding: 8px;
+    padding-left: 24px;
+    font-size: 16px;
+    transition: width 0.2s;
+    border-radius: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #E56F8C;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #E56F8C;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+.input-text-login {
+    height: 40px;
+    width: calc(100% - 5%);
+    border-radius: 6px;
+    border: 1px solid #eeeeee;
+    text-align: start;
+    padding: 0 !important;
+    padding-left: 5% !important;
+}
+
+.input-button-login {
+    height: 40px;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #E56F8C;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hoverE56F8C:hover {
+    color: #E56F8C;
+}
+
+.w-50admin{
+    width: 50% !important;
+    max-width: 50%;
+}
+
+/* Стили для заднего фона */
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Затемненный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050; /* Должно быть выше остальных элементов на странице */
+}
+
+/* Стили для модального окна */
+.modal-dialog {
+    background-color: #fff;
+    padding: 2%;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 100%; /* Максимальная ширина модального окна */
+    width: 40%;
+    transition: transform 0.3s; /* Плавное появление */
+    transform: scale(0.7);
+    display: flex;
+    flex-direction: column; /* Располагать содержимое вертикально */
+}
+
+.modal-dialog input {
+    width: calc(100% - 2%) !important;
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-dialog input[type=button]{
+    width: 40% !important;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-dialog select{
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-dialog option{
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-dialog textarea {
+    width: calc(100% - 2%) !important;
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+}
+
+    /* Показать модальное окно и контент */
+.modal-dialog.show .modal-content {
+    transform: scale(1);
+}
+
+#modal{
+    display: none;
+}
+
+.inpforadmin {
+    width: calc(250px - 26px);
+    height: 20px;
+    border-radius: 0px;
+    padding-left: 16px;
+}
+
+.selforadmin {
+    width: 250px;
+    height: 40px;
+    border-radius: 0px;
+    padding-left: 16px;
+    border: 1px solid #eeeeee;
+    padding: 8px;
+    font-size: 16px;
+    transition: width 0.2s;
+}
+
+@media screen and (max-width: 1600px) {
+    .mediafuctionsnamemrleft0{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .mediafuctionslogosnone{
+        width: 30px;
+    }
+    .displayprojsort{
+        display: block;
+        margin-bottom: 16px;
+    }
+    .mediaaccpass {
+        display: block;
+    }
+    .inpforoldpas {
+        width: calc(100% - 16px) !important;
+    }
+    .mediaaccmrbottom{
+        margin-top: 16px;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .mediawraptext{
+        display: block;
+    }
+
+    .mediadownfontsize{
+        font-size: 14px;
+    }
+
+    .mediafuctionslogosnone {
+        display: none;
+    }
+
+    .mediafuctionsnamemrleft0{
+        margin-left: 0px;
+        font-size: 16px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .mediadiagramswrap{
+        display: block;
+    }
+
+    .mediadiagrams{
+        margin: 0 auto;
+        margin-top: 16px;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .mediadisplaynone{
+        display: none;
+    }
+    .mediamrleft0{
+        margin-left: 0px;
+    }
+
+    .mediafuctionsnamemrleft0{
+        display: none;
+    }
+
+    .mediafuctionslogosnone{
+        display: block;
+        margin: 0 auto;
+    }
+
+    .mediaprojdblock{
+        display: block;
+    }
+
+    .mediaprojstartdate{
+        margin-top: 16px;
+    }
+
+    .mediatasksinproj {
+        display: block !important;
+    }
+    .taskback {
+        margin-bottom: 8px;
+        margin-right: 0;
+        width: calc(100% - 64px);
+    }
+
+    .login {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .medialogon{
+        display: block;
+        margin: 0 auto;
+    }
+    .loginbackleft{
+        width: 100%;
+        margin-right: 0;
+    }
+    .loginback {
+        margin-top: 16px;
+        width: calc(100% - 64px);
+        margin-left: 0;
+    }
+    .logonsvg{
+        max-width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .mediatextdisplaynone {
+        display: none;
+    }
+
+    .mediadisplaynone {
+        display: inline-block;
+        margin-top:24px;
+    }
+
+    .mediadownfontsize{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mediawraptext {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        margin-top: 0px;
+        margin-right: 0px;
+        width: 30px;
+    }
+
+    .leftbarback{
+        width: 80px;
+    }
+
+    .mediafuctionsdisplayblock{
+        display: block;
+    }
+
+    .leftbar {
+        width: 80px;
+    }
+
+    .mediaaddwidth{
+        width: 85%;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        max-width: 85%;
+    }
+
+    .mediafuctionsnamemrleft0{
+        display: block;
+    }
+
+    .mediadiagrams {
+        margin: 0 auto;
+        margin-top: 16px;
+        width: calc(100% - 32px) !important;
+    }
+
+    .mediaindexlastbuttons {
+        display: block;
+        width: calc(100% - 16px) !important;
+    }
+
+    .mediaindexlastbutton{
+        width: 85%;
+        margin: 0 0;
+        margin-top: 16px;
+    }
+
+    .mediaprojstartdate{
+        display: block;
+    }
+
+    #projectstdate{
+        margin-left: 0px;
+        font-size: 12px;
+    }
+
+    #projectendate {
+        margin-left: 0px;
+        font-size: 12px;
+    }
+
+    #projectaskcdate {
+        margin-left: 0px;
+        font-size: 12px;
+    }
+
+    #projectname {
+        font-size: 12px;
+    }
+
+    #projectstatus {
+        font-size: 12px;
+    }
+
+    #projectauthors {
+        font-size: 12px;
+    }
+
+    #projectdescription {
+        font-size: 12px;
+    }
+
+    #taskname {
+        font-size: 12px;
+    }
+    #taskproject {
+        font-size: 12px;
+    }
+    #taskstatus {
+        font-size: 12px;
+    }
+    #taskpriority {
+        font-size: 12px;
+    }
+    #taskstartdate {
+        font-size: 12px;
+        margin-left: 0;
+    }
+    #taskenddate {
+        font-size: 12px;
+        margin-left: 0;
+    }
+    #taskcfiles {
+        font-size: 12px;
+        margin-left: 0;
+    }
+
+    .mediaabouttask{
+        display: block !important;
+        margin-top: 8px;
+    }
+
+    .mediatasksort{
+        display: block !important;
+    }
+
+    #creationdatesort{
+        margin-left: 0;
+        width: calc(100% - 42px);
+        margin-bottom: 8px;
+    }
+    #projdatesort {
+        margin-left: 0;
+        width: calc(100% - 42px);
+        margin-bottom: 8px;
+    }
+    #namesort {
+        margin-bottom: 8px;
+    }
+    #projnamesort {
+        margin-bottom: 8px;
+    }
+    #statussort {
+        margin-bottom: 8px;
+    }
+    #projstatussort {
+        margin-bottom: 8px;
+        margin-left: 0;
+    }
+    #statussort {
+        margin-bottom: 8px;
+        margin-left: 0;
+    }
+    #prioritysort {
+        margin-left: 0;
+    }
+    #buttonopencreateproj{
+        margin-left: 0px;
+        width: 25px;
+    }
+
+    #notiname {
+        font-size: 12px;
+    }
+    #deletenoti{
+        font-size: 12px;
+    }
+    #notidate{
+        font-size: 14px;
+    }
+
+    #username{
+        font-size: 14px;
+    }
+    #useremail {
+        font-size: 14px;
+    }
+
+    .mediareportback{
+        display: block;
+    }
+    .mediareportmargin{
+        margin-top: 16px;
+        font-size: 14px;
+    }
+    .mediareporttext {
+        font-size: 16px;
+    }
+    .mediareporttext2 {
+        font-size: 14px;
+    }
+    .mediareporttitle {
+        font-size: 16px;
+    }
+
+    .mediadelacc{
+        margin-top: 16px;
+    }
+
+    .mediasettingstext1{
+        font-size: 16px;
+    }
+    .mediasettingstext2 {
+        font-size: 14px;
+    }
+    .inpaddhei {
+        height: 56px;
+    }
+}
+
+.mediaabouttask{
+    display: flex;
+    align-items: center;
+}
+
+#buttonopencreateproj {
+    min-width: 40px;
+}
+
+@media screen and (max-width: 480px) {
+    .mediawraptext{
+        margin: 0;
+    }
+    .logo {
+        width: 30px;
+    }
+
+    .mediadisablepad{
+        padding: 8px;
+    }
+
+    .mediaaddwidth{
+        width: 75%;
+    }
+
+    .mediaindexlastbutton {
+        width: 75%;
+    }
+
+    .mediaaboutproj{
+        display: block !important;
+    }
+
+    #switcher{
+        max-width: 12px;
+    }
+
+    .taskpropertyback {
+        font-size: 12px;
+    }
+
+    #tasknames{
+        font-size: 18px;
+    }
+    #taskdescs{
+        font-size: 14px;
+    }
+    #taskcfiless {
+        font-size: 14px;
+    }
+
+    .mediaacctext1 {
+        font-size: 14px;
+    }
+    .mediaacctext2 {
+        font-size: 16px;
+    }
+
+    .modal-dialog {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px;
+    }
+    #projname{
+        width: calc(100% - 20px) !important;
+    }
+    #projdesc {
+        width: calc(100% - 20px) !important;
+    }
+    #projstartdate {
+        width: calc(100% - 20px) !important;
+    }
+    #projenddate {
+        width: calc(100% - 20px) !important;
+    }
+    #projstatus {
+        width: calc(100% - 2px) !important;
+    }
+    #btncreateproj {
+        width: calc(70% - 20px) !important;
+    }
+    .mediardtask{
+        display: block;
+    }
+    .mediardtaskmrg{
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    #taskname {
+        width: calc(100% - 20px) !important;
+    }
+    #taskdesc {
+        width: calc(100% - 20px) !important;
+    }
+    #taskstatus {
+        width: calc(100% - 2px) !important;
+    }
+    #taskpriority {
+        width: calc(100% - 2px) !important;
+    }
+    #taskstartdate {
+        width: calc(100% - 24px) !important;
+    }
+    #taskenddate {
+        width: calc(100% - 24px) !important;
+    }
+    #files {
+        width: calc(100% - 40px) !important;
+    }
+    #btncreatetask {
+        width: calc(70% - 20px) !important;
+    }
+    #btneditproj {
+        width: calc(70% + 8px) !important;
+    }
+    #btnedittask {
+        width: calc(70% + 8px) !important;
+    }
+}
+
+#areaadminnews{
+    width: calc(100% - 16px) !important;
+    min-height: 128px;
+}
+
+.mrbottom-32{
+    margin-bottom: 32px;
+}

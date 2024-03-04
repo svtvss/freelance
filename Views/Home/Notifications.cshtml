@@ -1,0 +1,32 @@
+﻿@model ContextManager
+@{
+    ViewBag.ActivePage = "Notifications";
+    List<Notification> myNoti = ViewBag.MyNoti;
+    var groupedNotifications = myNoti.GroupBy(n => n.InvoiceDate.Date).OrderByDescending(g => g.Key).ToList();
+}
+
+@if (groupedNotifications.Count > 0)
+{
+    foreach (var group in groupedNotifications)
+    {
+        <div class="mrtop-32">
+            <p class="cursor-default margin-0 fontsize18 fontweightbold" id="notidate">@group.Key.ToShortDateString()</p>
+
+            @foreach (var noti in group)
+            {
+                <div class="accountback mrtop-8 d-flex alignitems-center justify-content-space-between mediaabouttask">
+                    <div>
+                        <a class="cursor-default colorblack" id="notiname">@noti.Name</a>
+                    </div>
+                    <div>
+                        <a href="/Home/DeleteNotification?notificationid=@noti.Id" class="colorE56F8C" id="deletenoti">Удалить уведомление</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+else
+{
+    <a class="margin-0 colorblack cursor-default mediareporttext2 fontweightbold fontsize18 mrtop-32">Уведомления отсутсвуют.</a>
+}

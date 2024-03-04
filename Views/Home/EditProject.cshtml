@@ -1,0 +1,56 @@
+﻿@{
+    var startdate = ViewBag.Project.StartDate as DateTime?;
+    var enddate = ViewBag.Project.EndDate as DateTime?;
+}
+
+<form>
+    <div>
+        <p class="margin-0 fontweightbold fontsize20">Наименование проекта:</p>
+        <input type="text" class="inpforoldpas mrtop-8" id="projname" name="projname" value="@ViewBag.Project.Name" required />
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Описание проекта:</p>
+        <textarea class="inpforoldpas mrtop-8" id="projdesc" name="projdesc" required>@ViewBag.Project.Description</textarea>
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Начальная дата:</p>
+        @if (startdate.HasValue)
+        {
+            <input type="date" class="inpforoldpas mrtop-8" id="projstartdate" name="projstartdate" value="@startdate.Value.ToString("yyyy-MM-dd")"required />
+        }
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Конечная дата:</p>
+        @if (enddate.HasValue)
+        {
+            <input type="date" class="inpforoldpas mrtop-8" id="projenddate" name="projenddate" required value="@enddate.Value.ToString("yyyy-MM-dd")" />
+        }
+
+        <p class="margin-0 fontweightbold fontsize20 mrtop-16">Статус проекта:</p>
+        @if (ViewBag.Project.Status == ProjectStatus.Запланированный)
+        {
+            <select class="mrtop-8" name="projstatus" id="projstatus" required>
+                <option value="Запланированный" selected>Запланированный</option>
+                <option value="Впроцессе">В процессе</option>
+                <option value="Завершенный">Завершенный</option>
+            </select>
+        }
+        else if (ViewBag.Project.Status == ProjectStatus.Впроцессе)
+        {
+            <select class="mrtop-8" name="projstatus" id="projstatus" required>
+                <option value="Запланированный">Запланированный</option>
+                <option value="Впроцессе" selected>В процессе</option>
+                <option value="Завершенный">Завершенный</option>
+            </select>
+        }
+        else if (ViewBag.Project.Status == ProjectStatus.Завершенный)
+        {
+            <select class="mrtop-8" name="projstatus" id="projstatus" required>
+                <option value="Запланированный">Запланированный</option>
+                <option value="Впроцессе">В процессе</option>
+                <option value="Завершенный" selected>Завершенный</option>
+            </select>
+        }
+
+        <div class="d-flex justify-content-center">
+            <input type="button" onclick="EdProject('@ViewBag.Project.Id', this.form.projname.value, this.form.projdesc.value, this.form.projstartdate.value, this.form.projenddate.value , this.form.projstatus.value)" class="input-button-login mrtop-16" style="text-align: center;" value="Реадктировать проект" />
+        </div>
+    </div>
+</form>

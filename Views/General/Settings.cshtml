@@ -1,0 +1,65 @@
+﻿@model ContextManager
+@{
+    ViewBag.ActivePage = "Settings";
+}
+
+<p class="margin-0 fontsize18 fontweightbold mrtop-16 mediasettingstext1">Настройка уведомлений</p>
+<p class="margin-0 mrtop-16 fontsize16 fontweightbold mediasettingstext2">Email</p>
+
+@foreach (var a in ViewBag.MyNoti)
+{
+    if (a.NotiFrom == "Email")
+    {
+        <div class="accountback mrtop-8 mediasettingstext2">
+            <div class="d-flex alignitems-center justify-content-space-between">
+                <div>
+                    <a class="margin-0 colorblack" name="@a.Id" id="@a.Id">@a.NotiName</a>
+                </div>
+                <div>
+                    <label class="switch">
+                        @if (a.isWork == true)
+                        {
+                            <input type="checkbox" checked name="@a.Id">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="@a.Id">
+                        }
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<form>
+    <p class="margin-0 mrtop-16 fontsize16 fontweightbold">ProLogs</p>
+    @foreach (var a in ViewBag.MyNoti)
+    {
+        if (a.NotiFrom == "ProLogs")
+        {
+            <div class="accountback mrtop-8 mediasettingstext2">
+                <div class="d-flex alignitems-center justify-content-space-between">
+                    <div>
+                        <a class="margin-0 colorblack">@a.NotiName</a>
+                    </div>
+                    <div>
+                        <label class="switch">
+                            @if (a.isWork == true)
+                            {
+                                <input type="checkbox" checked name="@a.Id">
+                            }
+                            else
+                            {
+                                <input type="checkbox" name="@a.Id">
+                            }
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    <input type="button" value="Сохранить изменения" class="inpforrec mrtop-16 cursor-pointer mediasettingstext2 inpaddhei" style="white-space: normal;" onclick="UpdNotiRules()">
+</form>
