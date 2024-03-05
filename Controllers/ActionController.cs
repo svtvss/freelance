@@ -44,20 +44,18 @@ namespace freelance.Controllers
 
                 ViewData["Title"] = "Проекты";
 
-                List<Project> allprojects = myprojects;
-
                 if (name != null)
                 {
                     if (name != "all")
                     {
                         if (name == "asc")
                         {
-                            allprojects = allprojects.OrderBy(q => q.Name).ToList();
+                            myprojects = myprojects.OrderBy(q => q.Name).ToList();
                             ViewBag.Name = "asc";
                         }
                         else if (name == "desc")
                         {
-                            allprojects = allprojects.OrderByDescending(q => q.Name).ToList();
+                            myprojects = myprojects.OrderByDescending(q => q.Name).ToList();
                             ViewBag.Name = "desc";
                         }
                     }
@@ -69,7 +67,7 @@ namespace freelance.Controllers
 
                 if (date != null)
                 {
-                    allprojects = allprojects.Where(q => q.StartDate == date).ToList();
+                    myprojects = myprojects.Where(q => q.StartDate == date).ToList();
                 }
 
                 if (status != null)
@@ -83,7 +81,7 @@ namespace freelance.Controllers
                         else if (status == "Завершенный")
                             ViewBag.Status = "Завершенный";
 
-                        allprojects = allprojects.Where(q => q.Status == ContextManager.ConvertProjectStatus2(status)).ToList();
+                        myprojects = myprojects.Where(q => q.Status == ContextManager.ConvertProjectStatus2(status)).ToList();
                     }
                     else
                     {
@@ -91,7 +89,7 @@ namespace freelance.Controllers
                     }
                 }
 
-                ViewBag.SortedProjects = allprojects.OrderBy(p => p.Status).ToList();
+                ViewBag.SortedProjects = myprojects.OrderBy(p => p.Status).ToList();
 
                 return View(model);
             }
@@ -132,8 +130,7 @@ namespace freelance.Controllers
                 List<freelance.Models.Task> tasksComplete = tasksinproj.Where(q => q.Status == Models.TaskStatus.Завершенный).ToList();
 
                 ViewBag.TasksInProgress = tasksInProgress; ViewBag.TasksNew = tasksNew; ViewBag.TasksComplete = tasksComplete;
-                var authors = db.UsersProjects.Where(q => q.ProjectId == projid).ToList();
-                ViewBag.Authors = authors;
+                ViewBag.Authors = db.UsersProjects.Where(q => q.ProjectId == projid).ToList();
 
                 ViewData["Title"] = "Проект " + proj.Name;
                 return View(model);

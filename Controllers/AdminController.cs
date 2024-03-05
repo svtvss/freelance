@@ -18,9 +18,7 @@ namespace freelance.Controllers
 
         public IActionResult Index(string name, string email, int? role, int? status)
         {
-            string jwtToken = Request.Cookies["prologs"];
-
-            if (ContextManager.IsJwtTokenValid(jwtToken))
+            if (ContextManager.IsJwtTokenValid(Request.Cookies["prologs"]))
             {
                 var jwt = Request.Cookies["prologs"];
                 var handler = new JwtSecurityTokenHandler();
@@ -70,10 +68,9 @@ namespace freelance.Controllers
 
         public IActionResult ActionsUser(string type, int srchuser)
         {
-            string jwtToken = Request.Cookies["prologs"];
             string action = string.Empty;
 
-            if (ContextManager.IsJwtTokenValid(jwtToken))
+            if (ContextManager.IsJwtTokenValid(Request.Cookies["prologs"]))
             {
                 var jwt = Request.Cookies["prologs"];
                 var handler = new JwtSecurityTokenHandler();

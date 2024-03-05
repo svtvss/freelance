@@ -189,10 +189,11 @@
                             </div>
                         }
                     }
-
-                    <p class="margin-0 fontsize14 cursor-default" id="projectstdate" title="Начальная дата">@proj.StartDate.ToShortDateString()</p>
-                    <p class="margin-0 fontsize14 mrleft-32 cursor-default" id="projectendate" title="Конечная дата">@proj.EndDate.ToShortDateString()</p>
-                    <p class="margin-0 fontsize14 mrleft-32 cursor-default" id="projectaskcdate" title="Количество задач в проекте" style="text-wrap: nowrap">@taskcount @GetTaskLabel(taskcount)</p>
+                    <div class="fontsize14 cursor-default">
+                        <p class="margin-0" id="projectstdate" title="Начальная дата">@proj.StartDate.ToShortDateString()</p>
+                        <p class="margin-0 mrleft-32" id="projectendate" title="Конечная дата">@proj.EndDate.ToShortDateString()</p>
+                        <p class="margin-0 mrleft-32" id="projectaskcdate" title="Количество задач в проекте" style="text-wrap: nowrap">@taskcount @GetTaskLabel(taskcount)</p>
+                    </div>
                 </div>
             </div>
         </div>

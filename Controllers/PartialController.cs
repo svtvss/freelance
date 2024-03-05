@@ -95,16 +95,16 @@ namespace freelance.Controllers
                 return Redirect("~/Logon/Login");
         }
 
-        public EmptyResult EditingProject(int projectId, string projname, string projdesc, DateTime projstartdate, DateTime projenddate, string projstatus)
+        public EmptyResult EditingProject(Project project)
         {
-            var proj = db.Projects.FirstOrDefault(q => q.Id == projectId);
-            proj.Name = projname;
-            proj.Description = projdesc;
-            proj.StartDate = projstartdate;
-            proj.EndDate = projenddate;
-            proj.Status = ContextManager.ConvertProjectStatus2(projstatus);
+            var proj = db.Projects.FirstOrDefault(q => q.Id == project.Id);
+            proj.Name = project.Name;
+            proj.Description = project.Description;
+            proj.StartDate = project.StartDate;
+            proj.EndDate = project.EndDate;
+            proj.Status = ContextManager.ConvertProjectStatus2(project.Status.ToString());
 
-            if (projstatus == "Завершенный")
+            if (project.Status.ToString() == "Завершенный")
             {
                 proj.EndDate = DateTime.Today;
             }
@@ -140,18 +140,18 @@ namespace freelance.Controllers
                 return Redirect("~/Logon/Login");
         }
 
-        public EmptyResult CreateNewTask(string userId, string projectId, string taskname, string taskdesc, string taskpriority, string taskstartdate, string taskenddate, List<IFormFile> files)
+        public EmptyResult CreateNewTask(Models.Task task, List<IFormFile> files)
         {
             var newtask = new Models.Task()
             {
-                Name = taskname,
-                Description = taskdesc,
-                Priority = ContextManager.ConvertTaskPriority(taskpriority),
+                Name = task.Name,
+                Description = task.Description,
+                Priority = ContextManager.ConvertTaskPriority(task.Priority.ToString()),
                 Status = Models.TaskStatus.Новый,
-                CreationDate = DateTime.ParseExact(taskstartdate, "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                DueDate = DateTime.ParseExact(taskenddate, "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                UserId = int.Parse(userId),
-                ProjectId = int.Parse(projectId)
+                CreationDate = task.CreationDate,
+                DueDate = task.DueDate,
+                UserId = task.UserId,
+                ProjectId = task.ProjectId
             };
 
             db.Tasks.Add(newtask);
@@ -188,17 +188,9 @@ namespace freelance.Controllers
             return new EmptyResult();
         }
 
-        public EmptyResult EditingTask(int taskid, string taskname, string taskstatus, string taskpriority, string taskdesc, DateTime taskstartdate, DateTime taskenddate)
+        public EmptyResult EditingTask(Models.Task task)
         {
-            var task = db.Tasks.FirstOrDefault(q => q.Id == taskid);
-            task.Name = taskname;
-            task.Description = taskdesc;
-            task.CreationDate = taskstartdate;
-            task.DueDate = taskenddate;
-            task.Status = ContextManager.ConvertTaskStatus(taskstatus);
-            task.Priority = ContextManager.ConvertTaskPriority(taskpriority);
-
-            if (taskstatus == "Завершенный")
+            if (task.Status.ToString() == "Завершенный")
             {
                 task.DueDate = DateTime.Today;
             }
@@ -268,15 +260,14 @@ namespace freelance.Controllers
                 User user = db.Users.FirstOrDefault(m => m.Id == int.Parse(userId));
                 var model = new ContextManager { CurrentUser = user, Users = db.Users.ToList(), Projects = db.Projects.ToList(), Files = db.Files.ToList() };
 
-                var task = db.Tasks.FirstOrDefault(q => q.Id == taskId);
-                ViewBag.Task = task;
+                ViewBag.Task = db.Tasks.FirstOrDefault(q => q.Id == taskId);
 
-                if (task.UserId != user.Id)
+                if (ViewBag.Task.UserId != user.Id)
                     ViewBag.MyTask = false;
                 else
                     ViewBag.MyTask = true;
 
-                var proj = db.Projects.FirstOrDefault(q => q.Id == task.ProjectId);
+                var proj = db.Projects.FirstOrDefault(q => q.Id == ViewBag.Task.ProjectId);
                 var user_projs = db.UsersProjects.FirstOrDefault(q => q.ProjectId == proj.Id && q.UserId == user.Id);
                 if (user_projs != null)
                     return PartialView("EditTask", model);

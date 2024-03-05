@@ -209,9 +209,11 @@
                         }
                     }
 
-                    <p class="margin-0 fontsize14 mrleft-32 cursor-default" title="Дата создания задачи" id="taskstartdate">@task.CreationDate.ToShortDateString()</p>
-                    <p class="margin-0 fontsize14 mrleft-32 cursor-default" title="Дата завершения задачи" id="taskenddate">@task.DueDate.ToShortDateString()</p>
-                    <p class="margin-0 fontsize14 mrleft-32 cursor-default" title="Количество файлов в задаче задачи" style="text-wrap:nowrap" id="taskcfiles">@countFiles @GetFileLabel(countFiles)</p>
+                    <div class="cursor-default fontsize14">
+                        <p class="margin-0 mrleft-32" title="Дата создания задачи" id="taskstartdate">@task.CreationDate.ToShortDateString()</p>
+                        <p class="margin-0 mrleft-32" title="Дата завершения задачи" id="taskenddate">@task.DueDate.ToShortDateString()</p>
+                        <p class="margin-0 mrleft-32" title="Количество файлов в задаче задачи" style="text-wrap:nowrap" id="taskcfiles">@countFiles @GetFileLabel(countFiles)</p>
+                    </div>
                 </div>
             </div>
         </div>
